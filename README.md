@@ -81,7 +81,7 @@ animal-image-classifier/
 Clone the repository:
 
 ```
-git clone https://github.com/YOUR_USERNAME/animal-image-classifier.git
+git clone https://github.com/ysuraphel1/animal-image-classifier.git
 cd animal-image-classifier
 ```
 
