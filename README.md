@@ -181,7 +181,7 @@ This project uses the **Animal Image Dataset (90 Different Animals)** created by
 
 https://www.kaggle.com/datasets/iamsouravbanerjee/animal-image-dataset-90-different-animals
 
-The dataset is redistributed here solely for educational and demonstration purposes as part of this computer vision classification pipeline.
+The dataset is redistributed here solely for demonstration purposes as part of this computer vision classification pipeline.
 
 Full credit for dataset collection and preparation belongs to the original author.
 
