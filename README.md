@@ -1,6 +1,6 @@
 # Animal Image Classifier
 
-An end-to-end computer vision application that classifies uploaded animal images using a pretrained convolutional neural network built with PyTorch and deployed through an interactive Streamlit interface.
+A computer vision application that classifies uploaded animal images using a pretrained convolutional neural network built with PyTorch and deployed through an interactive Streamlit interface.
 
 This repository includes the trained model and dataset structure so users can clone the project and run the application immediately without downloading additional files.
 
@@ -251,7 +251,7 @@ These allow the application to run without retraining.
 
 ## Limitations
 
-The classifier predicts only among the supported animal classes listed above.
+The classifier predicts only among the animal classes it was trained on.
 
 If an uploaded image contains an unsupported species, the model will still return the closest match with lower confidence.
 
