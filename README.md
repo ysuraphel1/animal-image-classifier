@@ -6,6 +6,14 @@ This repository includes the trained model and dataset structure so users can cl
 
 ---
 
+## Demo
+
+Below is a walkthrough of the application:
+
+![App Demo](demo/demo.gif)
+
+---
+
 ## Features
 
 * Upload an image through a local web interface
