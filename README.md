@@ -270,4 +270,6 @@ matplotlib
 
 ## License
 
-This repository is intended for portfolio use.
+This project’s code is licensed under the MIT License.
+
+Note: The dataset used in this project remains subject to the original dataset provider’s terms and conditions.
