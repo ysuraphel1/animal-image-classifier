@@ -268,18 +268,6 @@ matplotlib
 
 ---
 
-## Example Use Cases
-
-Demonstrations of convolutional neural networks
-
-Computer vision experimentation and transfer learning workflows
-
-Interactive ML model deployment examples
-
-Portfolio projects showcasing applied deep learning pipelines
-
----
-
 ## License
 
 This repository is intended for portfolio use.
