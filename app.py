@@ -1,7 +1,7 @@
 from PIL import Image
 import streamlit as st
 
-from src.inference_utils import predict_pil_image
+from src.inference_utils import load_class_metrics, predict_pil_image
 
 st.set_page_config(page_title="Animal Image Classifier", page_icon="🐾")
 
@@ -20,6 +20,7 @@ if uploaded_file is not None:
 
     try:
         predictions = predict_pil_image(image=image, top_k=3)
+        class_metrics = load_class_metrics()
 
         top_label, top_prob = predictions[0]
 
@@ -27,9 +28,22 @@ if uploaded_file is not None:
         st.write(f"**Animal:** {top_label}")
         st.write(f"**Confidence:** {top_prob:.2%}")
 
+        if class_metrics and top_label in class_metrics:
+            m = class_metrics[top_label]
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Precision", f"{m['precision']:.3f}")
+            col2.metric("Recall", f"{m['recall']:.3f}")
+            col3.metric("F1 Score", f"{m['f1']:.3f}")
+
         st.subheader("Top Predictions")
         for label, prob in predictions:
-            st.write(f"- {label}: {prob:.2%}")
+            metric_str = ""
+            if class_metrics and label in class_metrics:
+                m = class_metrics[label]
+                metric_str = (
+                    f" | P={m['precision']:.3f}  R={m['recall']:.3f}  F1={m['f1']:.3f}"
+                )
+            st.write(f"- **{label}**: {prob:.2%}{metric_str}")
 
         if top_prob < 0.50:
             st.warning("Low confidence prediction. The image may be unclear or outside the trained classes.")

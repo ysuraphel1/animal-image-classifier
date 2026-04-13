@@ -3,7 +3,7 @@ from pathlib import Path
 
 from PIL import Image
 
-from src.inference_utils import predict_pil_image
+from src.inference_utils import load_class_metrics, predict_pil_image
 
 
 def main():
@@ -18,10 +18,19 @@ def main():
 
     image = Image.open(image_path).convert("RGB")
     predictions = predict_pil_image(image, top_k=args.top_k)
+    class_metrics = load_class_metrics()
 
     print("Predictions:")
     for label, prob in predictions:
-        print(f"{label}: {prob:.2%}")
+        line = f"  {label}: confidence={prob:.2%}"
+        if class_metrics and label in class_metrics:
+            m = class_metrics[label]
+            line += (
+                f"  precision={m['precision']:.3f}"
+                f"  recall={m['recall']:.3f}"
+                f"  f1={m['f1']:.3f}"
+            )
+        print(line)
 
 
 if __name__ == "__main__":
