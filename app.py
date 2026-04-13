@@ -30,10 +30,7 @@ if uploaded_file is not None:
 
         if class_metrics and top_label in class_metrics:
             m = class_metrics[top_label]
-            col1, col2, col3 = st.columns(3)
-            col1.metric("Precision", f"{m['precision']:.3f}")
-            col2.metric("Recall", f"{m['recall']:.3f}")
-            col3.metric("F1 Score", f"{m['f1']:.3f}")
+            st.write(f"**Precision:** {m['precision']:.3f}  |  **Recall:** {m['recall']:.3f}  |  **F1 Score:** {m['f1']:.3f}")
 
         st.subheader("Top Predictions")
         for label, prob in predictions:
